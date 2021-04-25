@@ -1,0 +1,502 @@
+@font-face {
+    font-family: "Raleway-Light";
+    src: url("fonts/Raleway-Light.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: "Raleway-Light";
+}
+
+a{
+    text-decoration: none;
+    color: #eee;
+}
+
+#header{
+    width: 100%;
+    height: 210vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.5)),  center no-repeat;
+    background-size: cover;
+    position: absolute;
+    overflow: hidden;
+
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+nav{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.logo{
+    font-size: 3rem;
+    font-weight: 300;
+    transform: translateX(-100rem);
+    animation: slideIn .5s forwards;
+    margin-left: 25px;
+}
+
+.logo span{
+    color: #C0392B ;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn .5s forwards;
+}
+
+nav ul li:nth-child(1){
+    animation-delay: 0s;
+}
+
+nav ul li:nth-child(2){
+    animation-delay: .5s;
+}
+
+nav ul li:nth-child(3){
+    animation-delay: 1s;
+}
+
+nav ul li:nth-child(4){
+    animation-delay: 1.5s;
+}
+
+nav ul li:nth-child(5){
+    animation-delay: 2s;
+}
+
+nav ul li a{
+    padding: 1rem 0;
+    margin: 0 3rem;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+nav ul li a:last-child{
+    margin-right: 80px;
+}
+
+nav ul li a::before,
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #C0392B ;
+    left: 0;
+    transform: scaleX(0);
+    transition: all .5s;
+}
+
+nav ul li a::before{
+    top: 0;
+    transform-origin: left;
+}
+
+nav ul li a::after{
+    bottom: 0;
+    transform-origin: right;
+}
+
+.overlay{
+    background-color: rgba(0,0,0,.95);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: opacity 650ms;
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+    transform: scaleX(1);
+}
+
+@keyframes slideIn {
+    from{
+
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+
+/*-----------------------------------------------------*/
+body {
+    min-width: 1150px;
+    font-size: 18px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#backColor{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+p{
+    font-weight: bold;
+}
+button,option,select {
+    background-color: #7b241c;
+    border: none;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+}
+#checkout{
+    display: none;
+}
+#mainContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 78% 22%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+#item-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    column-gap: auto;
+    row-gap: 2%;
+    padding: 2%;
+  }
+#strip{
+    display: grid;
+    align-items: center;
+    background-color: rgba(240, 240, 240, 0.9);
+    height: auto;
+    width: auto;
+    border-radius: 20px 0px 0px 20px ;
+    grid-template-rows: 10% 67% 23%;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+#strip:hover{
+    background-color: rgba(255, 255, 255, 1);
+    transition-duration: 0.5s;
+    border-radius: 0px ;
+}
+h5{
+    font-size: 25px;
+}
+.item {
+    transition-duration: 0.5s;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: grid;
+    grid-template-rows: 70px 175px 105px;
+    width: 250px;
+    height: 350px;
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 20px;
+    padding: 5px;
+}.item:hover{
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .8);
+    transition-duration: 0.5s;
+    position: relative;
+    border-radius: 0;
+}
+.product{
+    height: 150px;
+    width: 150px;
+    margin-left: 50px;
+    border: 5px solid rgb(34, 40, 46);
+    transition-duration:0.1s;
+}
+.product:hover {
+    transition-delay: 0.3s;
+    transition-duration:0.1s;
+    margin-left: 0px;
+    margin-right: -100px;
+    margin-top: -200px;
+    position: relative;
+    height: 350px;
+    width: 350px ;
+    z-index:99;
+}
+.purchase{
+    height:85px;
+    width:100%-10px;
+    background-color: #2292A4;
+    margin-left:10px;
+    margin-Bottom :10px;
+    border-radius:42.5px 0px 0px 42.5px;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+    text-align: start;
+    transition-duration: 0.5s;
+}
+.purchase:hover{
+    background-color: #D96C06;
+    transition-duration: 1s;
+}
+#hideCartSum{
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    background: url("img/close1.png");
+    background-size: 30px;
+}
+#hideCartSum:hover{
+    background: url("img/close2.png");
+    background-size: 30px;
+}
+#cartSummary{
+    align-items: center;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 80px auto;
+    height: 83%;
+    width: 80%;
+    border-radius: 50px;
+    margin: 5% auto 5% 10%;
+    background-color: rgba(255, 255, 255, 0.93);
+    position: fixed;
+    z-index: 990;
+}
+#customerDetails{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 25px;
+    padding: 20px;
+}
+#cartSummaryPanes{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#cartSummaryHolder{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 980;
+}
+#text{
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#cart{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    display: inline;
+}
+
+#sizer{
+	width: 160px;
+	height: 60px;
+	position: fixed;
+	overflow: hidden;
+	top:0; 
+	left:100%;
+	margin-left:-60px;
+	border-radius:0px 0px 0px 10px;
+	background-repeat:no-repeat;
+	background-color: #fff;
+    transition: margin-left 1s;
+    z-index:999;
+}#down{
+	width: 30px;
+	height: 30px;
+	display: inline;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top:10px;
+	position: relative;
+	cursor: pointer;
+}#up{
+	width: 40px;
+	height: 40px;
+	display: inline;
+	margin-left: 5px;
+	margin-right: auto;
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 10px;
+}#size{
+	width: 50px;
+	height: 50px;
+	display: inline;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	position: relative;
+}
+#down:hover{ filter: drop-shadow(1px 1px 2px rgba(0, 102, 204, 10));}
+#up:hover{ filter: drop-shadow(1px 1px 2px rgba(0, 102, 204, 10));}
+#sizer:hover{margin-left:-160px;}
+/*-------------------------------------------------------- footer widget ----------------------------------------------------------------------------*/
+i{
+    cursor: pointer;
+}
+section {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 225px;
+    background-color: #7B241C;
+    z-index: 100;
+}
+
+.footer #ball{
+    width:35px;
+    height:35px;
+    border: whitesmoke 12px solid;
+    border-radius:35px;
+    margin:0 auto;
+    position:relative;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer {
+    bottom:0;
+    position: fixed;
+    width: 100vw;
+    height: 1em;
+    overflow:hidden;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index:101;
+}
+.footer:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    height: 7em;
+}
+.footer #container{
+    margin-top:5px;
+    width:100%;
+    height:100%;
+    position:relative;
+    top:0;
+    left:0;
+    background: #C0392B;
+}
+.footer #cont{
+    position:relative;
+    top:-45px;
+    right:190px;
+    width:150px;
+    height:auto;
+    margin:0 auto;
+}
+.footer_center{
+    width:500px;
+    float:left;
+    text-align:center;
+}
+.footer_center.buttonQuiz{
+    position: absolute;
+    right: 200px;                                     /*move quiz button*/
+}
+.footer h3{
+    font-family: 'Helvetica';
+    font-size: 20px;
+    font-weight: 100;
+    margin-top:70px;
+    margin-left:40px;
+    color: #eeeeee;
+    font-family: Raleway-Light;
+}
+
+#part1{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                            /*------------18px to 1920x100-----------------*/
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 20%;
+    top: 25px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+
+#part2{
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;                            /*------------18px to 1920x100-----------------*/
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 40%;
+    top: 5px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+
+#part3{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                            /*------------18px to 1920x100-----------------*/
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    right: 20%;
+    top: 25px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+#part4{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                            /*------------18px to 1920x100-----------------*/
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 40%;
+    top: 75px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}

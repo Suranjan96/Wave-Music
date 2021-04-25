@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> <!--For icons-->
+<head>
+	<title>Quiz Game</title>
+
+	<div class="container" id="container">
+		<nav>
+			<h1 class="logo" style="font-weight:bold"><a href="Main.html"><b>Waves</b><span> <b>M</b></span>usic</a></h1>
+        <ul>
+            <li><a href="Main.html">Home</a></li>
+			<li><a href="shop.html">Shop</a></li>
+            <li><a href="groupdetails.html">About Us</a></li>
+            <li><a href="Form.html">Rate Us</a></li>
+            <li><a href="sitemap.html">Site Map</a></li>
+        </ul>
+		</nav>
+		
+		<div id="sizer">
+            <div>
+            <img id="size" src="img/textSize.png" alt="Font Dwn" onclick="fDown()"></img>
+            <img id="down" src="img/fontdown.png" alt="Font Dwn" onclick="fDown()"></img>
+            <img id="up" src="img/fontup.png" alt="Font Up" onclick="fUp()"></img></div>
+        </div>
+	</div>
+
+<div id="head">
+	<div id="plate">
+	  <p class="shadow text1">MUSIC</p>
+	  <p class="shadow text2">QUIZ</p>
+	</div>
+	
+	<div id="results">
+		
+		<p id="number_correct"></p>
+		<p id="number_incorrect"></p>
+		<p id="result"></p>
+		<p id="answers"></p>
+		<p id="message"></p>
+		<p id="time"></p>
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body id="change">
+	<div id="change1">
+	<div id="quizHolder">
+		<div id="questionHolder">
+			<p id="q"></p>
+		</div>
+	<div id="answers">
+		<input type="button" name="answer" value="" id="ans1" class="answer">
+		<input type="button" name="answer" value="" id="ans2" class="answer">
+		<input type="button" name="answer" value="" id="ans3" class="answer">
+		<input type="button" name="answer" value="" id="ans4" class="answer">
+	</div>
+	<div id="timerHolder">
+		<div id="timer"></div>
+	</div>
+	<div id="next">
+		<input type="button" name="next" value="NEXT" id="nextbtn" class="nextbtn">
+	</div>
+	<input type="button" name="quit" value="QUIT" onclick="quitQuiz()" id="qbtn" class="qbtn">
+	<input type="button" name="results" value="RESULTS" id="resultbtn" class="resultbtn">
+	</div>
+
+<div align="center">
+	<input type="button" name="start" value="START" onclick="quizCall()" id="startbtn" class="startbtn" >
+</div>
+
+<audio id="ding">
+	
+</audio>
+
+<div id="timesup"></div>
+</div>
+
+<script type="text/javascript"> 
+	
+	
+	document.getElementById('resultbtn').style.display='none'
+	document.getElementById('nextbtn').style.display='none';
+	document.getElementById('qbtn').style.display='none';
+	document.getElementById('quizHolder').style.display='none';
+	document.getElementById('nextbtn').disabled = true;
+	function quizCall(){
+		window.correctCount = 0;
+		window.incorrectCount = 0;
+		window.inc=0;
+		window.dic=0;
+		window.message = ["1.  2\n","2.  Ragam\n","3.  Bollywood\n","4.  72\n","5.  Sitar\n","6.  There are no limits\n","7.  Rhythm\n","8.  Italian\n","9.  Cymbals\n","10.  6"];
+		window.ans=" ";
+		document.getElementById('quizHolder').style.display='block';
+		document.getElementById('head').style.display='none';
+		document.getElementById("container").style.display="none";
+		document.getElementById("footer").style.display="none";
+		document.getElementById('startbtn').style.display='none';
+		document.getElementById('nextbtn').style.display='block';
+		document.getElementById('qbtn').style.display='block';
+		document.getElementById('q').innerHTML="1. How many books are there to learn in the basic stages of learning music?";
+		document.getElementById('ans1').value="1"
+		document.getElementById('ans2').value="2"
+		document.getElementById('ans3').value="3"
+		document.getElementById('ans4').value="4"
+		
+	document.getElementById('ans2').onclick=correctQ1;
+	function correctQ1(){
+		correctCount=correctCount+2;
+		inc++;
+		document.getElementById('ans2').style.backgroundColor="green";
+		document.getElementById('ans1').disabled = true;
+		document.getElementById('ans3').disabled = true;
+		document.getElementById('ans4').disabled = true;
+		document.getElementById('nextbtn').disabled = false;
+		}
+		
+		document.getElementById('ans1').onclick=incorrectQ1;
+		document.getElementById('ans3').onclick=incorrectQ1; 
+		document.getElementById('ans4').onclick=incorrectQ1;
+		
+		function incorrectQ1(){
+			incorrectCount--;
+			dic++;
+			ans += message[0];
+			document.getElementById(this.id).style.backgroundColor="red";
+			document.getElementById('ans2').style.backgroundColor="green";
+			document.getElementById('nextbtn').disabled = false;
+		}
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q2;
+		function Q2(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="2. What is the tune of the song called?";
+			document.getElementById('ans1').value="Thaalam"
+			document.getElementById('ans2').value="Ragam"
+			document.getElementById('ans3').value="Taal"
+			document.getElementById('ans4').value="Raaga"
+			
+			document.getElementById('ans2').onclick=correctQ2;
+			function correctQ2(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+						
+			}
+			document.getElementById('ans1').onclick=incorrectQ2;
+			document.getElementById('ans3').onclick=incorrectQ2; 
+			document.getElementById('ans4').onclick=incorrectQ2;
+			
+			function incorrectQ2(){
+				incorrectCount--;
+				dic++;
+				ans += message[1];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}
+			
+		document.getElementById('nextbtn').disabled = true;	
+		document.getElementById('nextbtn').onclick=Q3;
+		function Q3(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="3. Movie music in India is made for the Indian movie industry. What is the Indian movie industry called?";
+			document.getElementById('ans1').value="Kollywood"
+			document.getElementById('ans2').value="Bollywood"
+			document.getElementById('ans3').value="Hollywood"
+			document.getElementById('ans4').value="None of above"
+			
+			document.getElementById('ans2').onclick=correctQ3;
+			function correctQ3(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+						
+			}
+			document.getElementById('ans1').onclick=incorrectQ3;
+			document.getElementById('ans3').onclick=incorrectQ3; 
+			document.getElementById('ans4').onclick=incorrectQ3;
+			
+			function incorrectQ3(){
+				incorrectCount--;
+				dic++;
+				ans += message[2];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}
+			
+		document.getElementById('nextbtn').disabled = true;	
+		document.getElementById('nextbtn').onclick=Q4;
+		function Q4(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="4. How many Mela Kartha Ragas are there?";
+			document.getElementById('ans1').value="68"
+			document.getElementById('ans2').value="72"
+			document.getElementById('ans3').value="64"
+			document.getElementById('ans4').value="76"
+			
+			document.getElementById('ans2').onclick=correctQ4;
+			function correctQ4(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;				
+			}
+			document.getElementById('ans1').onclick=incorrectQ4;
+			document.getElementById('ans3').onclick=incorrectQ4; 
+			document.getElementById('ans4').onclick=incorrectQ4;	
+			
+			function incorrectQ4(){
+				incorrectCount--;
+				dic++;
+				ans += message[3];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q5;
+		function Q5(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="5. Which is an Indian string instrument?";
+			document.getElementById('ans1').value="Sitar"
+			document.getElementById('ans2').value="Violin"
+			document.getElementById('ans3').value="Guitar"
+			document.getElementById('ans4').value="Cymbals"
+			
+			document.getElementById('ans1').onclick=correctQ5;
+			function correctQ5(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans1').style.backgroundColor="green";
+				document.getElementById('ans2').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;	
+				document.getElementById('nextbtn').disabled = false;
+			}
+			document.getElementById('ans2').onclick=incorrectQ5;
+			document.getElementById('ans3').onclick=incorrectQ5; 
+			document.getElementById('ans4').onclick=incorrectQ5;	
+			
+			function incorrectQ5(){
+				incorrectCount--;
+				dic++;
+				ans += message[4];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans1').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q6;
+		function Q6(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans2').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="6. Which is the highest voice or tone in which one is allowed to sing?";
+			document.getElementById('ans1').value="Level 2"
+			document.getElementById('ans2').value="Level 3"
+			document.getElementById('ans3').value="Level 4"
+			document.getElementById('ans4').value="There are no limits"
+			
+			document.getElementById('ans4').onclick=correctQ6;
+			function correctQ6(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans4').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans2').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+			}
+			document.getElementById('ans1').onclick=incorrectQ6;
+			document.getElementById('ans2').onclick=incorrectQ6; 
+			document.getElementById('ans3').onclick=incorrectQ6;	
+			
+			function incorrectQ6(){
+				incorrectCount--;
+				dic++;
+				ans += message[5];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans4').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q7;
+		function Q7(){
+			document.getElementById('ans2').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="7. Which element of music contains beat and no beat?";
+			document.getElementById('ans1').value="Melody"
+			document.getElementById('ans2').value="Rhythm"
+			document.getElementById('ans3').value="Harmony"
+			document.getElementById('ans4').value="None of above"
+			
+			document.getElementById('ans2').onclick=correctQ7;
+			function correctQ7(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+			}
+			document.getElementById('ans1').onclick=incorrectQ7;
+			document.getElementById('ans3').onclick=incorrectQ7; 
+			document.getElementById('ans4').onclick=incorrectQ7;	
+			
+			function incorrectQ7(){
+				incorrectCount--;
+				dic++;
+				ans += message[6];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}	
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q8;
+		function Q8(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="8.  Musical terms are written in what language?";
+			document.getElementById('ans1').value="German"
+			document.getElementById('ans2').value="French"
+			document.getElementById('ans3').value="Italian"
+			document.getElementById('ans4').value="Korean"
+			
+			document.getElementById('ans3').onclick=correctQ8;
+			function correctQ8(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans3').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans2').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+			}
+			document.getElementById('ans1').onclick=incorrectQ8;
+			document.getElementById('ans2').onclick=incorrectQ8; 
+			document.getElementById('ans4').onclick=incorrectQ8;	
+			
+			function incorrectQ8(){
+				incorrectCount--;
+				dic++;
+				ans += message[7];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans3').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}		
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q9;
+		function Q9(){
+			document.getElementById('ans1').disabled = false;
+			document.getElementById('ans2').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="9. How many strings on a standard guitar?";
+			document.getElementById('ans1').value="4"
+			document.getElementById('ans2').value="6"
+			document.getElementById('ans3').value="8"
+			document.getElementById('ans4').value="10"
+			
+			document.getElementById('ans2').onclick=correctQ9;
+			function correctQ9(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans3').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('nextbtn').disabled = false;
+			}
+			document.getElementById('ans1').onclick=incorrectQ9;
+			document.getElementById('ans3').onclick=incorrectQ9; 
+			document.getElementById('ans4').onclick=incorrectQ9;	
+			
+			function incorrectQ9(){
+				incorrectCount--;
+				dic++;
+				ans += message[8];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans2').style.backgroundColor="green";
+				document.getElementById('nextbtn').disabled = false;
+			}		
+		
+		document.getElementById('nextbtn').disabled = true;
+		document.getElementById('nextbtn').onclick=Q10;
+		function Q10(){
+			document.getElementById('ans2').disabled = false;
+			document.getElementById('ans3').disabled = false;
+			document.getElementById('ans4').disabled = false;
+			document.getElementById('ans1').style.backgroundColor="#2471A3";
+			document.getElementById('ans2').style.backgroundColor="#2471A3";
+			document.getElementById('ans3').style.backgroundColor="#2471A3";
+			document.getElementById('ans4').style.backgroundColor="#2471A3";
+			document.getElementById('q').innerHTML="10. Name the instrumentthat is not in the woodwind family";
+			document.getElementById('ans1').value="Flute"
+			document.getElementById('ans2').value="Clarinet"
+			document.getElementById('ans3').value="Cymbals"
+			document.getElementById('ans4').value="Piano"
+			
+			document.getElementById('ans3').onclick=correctQ10;
+			function correctQ10(){
+				correctCount=correctCount+2;
+				inc++;
+				document.getElementById('ans3').style.backgroundColor="green";
+				document.getElementById('ans1').disabled = true;
+				document.getElementById('ans2').disabled = true;
+				document.getElementById('ans4').disabled = true;
+				document.getElementById('resultbtn').style.display='block';
+				document.getElementById('nextbtn').style.display='none';
+				clearInterval(interval);
+			}
+			document.getElementById('ans4').onclick=incorrectQ10;
+			document.getElementById('ans2').onclick=incorrectQ10; 
+			document.getElementById('ans1').onclick=incorrectQ10;	
+			
+			function incorrectQ10(){
+				incorrectCount--;
+				dic++;
+				ans += message[9];
+				document.getElementById(this.id).style.backgroundColor="red";
+				document.getElementById('ans3').style.backgroundColor="green";
+				document.getElementById('resultbtn').style.display='block'
+				document.getElementById('nextbtn').style.display='none';
+				clearInterval(interval);
+			}			
+			
+
+									}
+								}
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
+	
+	window.counter = 0;
+	var timeleft = 120;
+	var timer = document.getElementById('timer');
+	timer.innerHTML=conSec(timeleft -counter);
+	
+	function conSec(s){
+		var min = Math.floor(s/60);
+		var sec = s%60;
+		return ("0" + min ).slice(-3) + ': ' + ("0" + sec ).slice(-2); 
+	}
+	
+	window.interval = setInterval(timeIt, 1000);
+	
+	function timeIt(){
+		counter++;
+		timer.innerHTML=conSec(timeleft -counter);
+		if(counter == timeleft){
+			var x = document.getElementById("ding");
+			x.play();
+			clearInterval(interval);
+			document.getElementById('ans1').disabled = true;
+			document.getElementById('ans2').disabled = true;
+			document.getElementById('ans3').disabled = true;
+			document.getElementById('ans4').disabled = true;
+			document.getElementById('nextbtn').disabled = true;
+			document.getElementById('resultbtn').style.display='block'
+		}
+	}
+}
+
+	function conSec(s){
+		var min = Math.floor(s/60);
+		var sec = s%60;;
+		return ("0" + min + " minutes ").slice(-11) + 'and ' + ("0" + sec + " seconds").slice(-10); 
+	}
+	
+	document.getElementById("resultbtn").onclick=results;
+	function results(){
+		
+		
+		if(correctCount >= dic){
+			var score = correctCount-dic;
+		}
+		else {
+			var score = 0;
+		}
+		
+		var backgrnd = document.createElement("DIV");
+		backgrnd.style.height="550px";
+		backgrnd.style.width="600px";
+		backgrnd.style.fontSize="18px";
+		backgrnd.style.borderRadius="10px";
+		backgrnd.style.margin="60px auto";
+		backgrnd.style.paddingTop="1px";
+		backgrnd.setAttribute("id","someId");
+		
+		if(score >10){
+			backgrnd.style.backgroundColor="#1E8449";		
+			}
+		if(score <=10 ){
+			backgrnd.style.backgroundColor="#B03A2E";
+		}
+		
+		document.getElementById("change1").style.display="none";
+		document.getElementById("container").style.display="block";
+		document.getElementById("footer").style.display="block";
+		
+		var para1 = document.createElement("P");
+		para1.innerText="R E S U L T S\n\nYou got " + inc + " correct answers.\n\nYou got " + dic +
+		" incorrect answers. \n\nScore : "+score+"\n\nA N S W E R S\n\n"+ans+"\n\nYou took, "+
+		conSec(counter)+" to finish the quiz.";
+		backgrnd.appendChild(para1);
+		
+		document.getElementById("change").appendChild(backgrnd);
+	}
+	
+	
+	function quitQuiz(){
+		//window.location.reload();
+		clearInterval(window.interval);
+		document.getElementById('resultbtn').style.display='none'
+		document.getElementById('ans1').style.backgroundColor="#2471A3";
+		document.getElementById('ans2').style.backgroundColor="#2471A3";
+		document.getElementById('ans3').style.backgroundColor="#2471A3";
+		document.getElementById('ans4').style.backgroundColor="#2471A3";
+		document.getElementById('ans1').disabled = false;
+		document.getElementById('ans2').disabled = false;
+		document.getElementById('ans3').disabled = false;
+		document.getElementById('ans4').disabled = false;
+		document.getElementById('quizHolder').style.display='none';
+		document.getElementById('startbtn').style.display='block';
+		document.getElementById("container").style.display="block";
+		document.getElementById("footer").style.display="block";
+		document.getElementById('head').style.display='block';
+		document.getElementById('nextbtn').style.display='none';
+		document.getElementById('nextbtn').disabled = false;
+		document.getElementById('qbtn').style.display='none';
+	}	
+	
+	var maxSize=0;
+	function fUp() {
+	var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+	var i;
+	maxSize++;
+	if (maxSize>2){
+		alert("Maximum Size Reached")
+	}else{
+		for (i = 0; i < x.length; i++) {
+			var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+			var fontSize = parseFloat(style);
+			x[i].style.fontSize = (fontSize + 3) + 'px';
+		} Downffd
+	}
+}
+	function fDown() {
+
+	var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+	var i;
+	maxSize--;
+	if (maxSize<-2){
+		alert("Minimum Size Reached")
+	}else{
+		for (i = 0; i < x.length; i++) {
+			var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+			var fontSize = parseFloat(style);
+			x[i].style.fontSize = (fontSize - 3) + 'px';
+		} 
+	}
+}
+		
+</script>
+<div id="footer">
+	<section>
+	<div id="part1"><br><br>Call Us now<br>+94112-4567890</div>
+    <div id="part2"><br><br>Follow Us<br><i class="fab fa-facebook-square"></i> <i class="fab fa-instagram"> <i class="fab fa-twitter"> <i class="fab fa-pinterest-p"> </i></i></i></div>
+    <a href="Suranjan.html" target="_blank"><div id="part3"><br><br>© Suranjan Kandamudali<br>2020 by Wave Music<br>Proudly Created with Group A2<br></div></a>
+    <div id="part4"><br><br>Subcribed Us<br><i class="	fab fa-youtube"></i><br></div>
+	</section>
+</div>
+</body >   
+<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square" style="font-size:35px; position: fixed; z-index: 4; top: 30%; right: 3%;"></i></a>
+<a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram" style="font-size:35px; position: fixed; z-index: 4; top: 45%; right: 3%;"></i></a>
+<a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter" style="font-size:35px; position: fixed; z-index: 4; top: 60%; right: 3%;"></i></a>
+<a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p" style="font-size:35px; position: fixed; z-index: 4; top: 75%; right: 3%;"></i></a>
+                            
+</html> 

@@ -1,0 +1,542 @@
+@font-face {
+    font-family: "Raleway-Light";
+    src: url("Fonts/Raleway-Light.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+
+    font-size: 10px;
+    font-family: "Raleway-Light";
+}
+
+a{
+    text-decoration: none;
+    color: #eee;
+}
+
+#header{
+    width: 100%;
+    height: 230vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.5)),  center no-repeat;
+    background-size: cover;
+    position: absolute;
+    /*position: relative;*/
+    overflow: hidden;
+
+}
+
+.container{
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-toggle{
+    position: fixed;
+    top: 2.5rem;
+    right: 2.5rem;
+    color: #eeeeee;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+}
+
+nav{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.logo{
+    font-size: 3rem;
+    font-weight: 300;
+    transform: translateX(-100rem);
+    animation: slideIn .5s forwards;
+}
+
+.logo span{
+    color: #f4511e;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn .5s forwards;
+}
+
+nav ul li:nth-child(1){
+    animation-delay: 0s;
+}
+
+nav ul li:nth-child(2){
+    animation-delay: .5s;
+}
+
+nav ul li:nth-child(3){
+    animation-delay: 1s;
+}
+
+nav ul li:nth-child(4){
+    animation-delay: 1.5s;
+}
+nav ul li:nth-child(5){
+    animation-delay: 2s;
+}
+nav ul li a{
+    padding: 1rem 0;
+    margin: 0 3rem;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+nav ul li a:last-child{
+    margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #f4511e;
+    left: 0;
+    transform: scaleX(0);
+    transition: all .5s;
+}
+
+nav ul li a::before{
+    top: 0;
+    transform-origin: left;
+}
+
+nav ul li a::after{
+    bottom: 0;
+    transform-origin: right;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+    transform: scaleX(1);
+}
+
+@keyframes slideIn {
+    from{
+
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+#topic{
+    position: absolute;
+    color: white;
+    left: 25%;                                            
+    top: 15%;
+    z-index: 4;
+    font-size: 100px;
+    font-family: "Segoe UI Black";
+}
+/*----------------------------------------Hover button css part----------------------------------------------------------------------------------*/
+.button {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    left: 45%;                                      /*------------46% to 1920x100-----------------*/
+    top: 26%;                                       /*------------26% to 1920x100-----------------*/
+    font-weight: bold;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/*--------------------------------------------quiz button css part--------------------------------------------------------------*/
+.buttonQuiz {
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    left: 500px;
+    top: 8%;
+}
+
+.buttonQuiz span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttonQuiz span:after {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.buttonQuiz:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/*------------------------------------------- 3 Tiles ------------------------------------------------------------------------*/
+.box-wrap {
+    margin:15%;
+    display: grid;
+    grid-template-columns: 300px 300px 300px ;
+    grid-gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    background-color: transparent;
+    
+}
+.box1{
+    font-size: 15px;
+    font-family: "Raleway-Light";
+    text-align: center; 
+    color: white;
+    border-radius:3px;
+    width: 280px;
+    background-color:rgba(0,0,0,0.1);
+}
+.box2{
+    font-size: 15px;
+    font-family: "Raleway-Light";
+    text-align: center; 
+    color: white;
+    border-radius:3px;
+    width: 280px;
+    background-color:rgba(0,0,0,0.1);
+}
+.box3{
+    font-size: 15px;
+    font-family: "Raleway-Light";
+    text-align: center; 
+    color: white;
+    border-radius:3px;
+    width: 280px;
+    background-color:rgba(0,0,0,0.1);
+}
+
+.box-wrap:hover .box1{
+    filter:blur(3px);
+    opacity:.5;
+    transform: scale(.98);
+    box-shadow:none;
+}
+
+.box-wrap:hover .box1:hover{
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.box-wrap:hover .box2{
+    filter:blur(3px);
+    opacity:.5;
+    transform: scale(.98);
+    box-shadow:none;
+}
+
+.box-wrap:hover .box2:hover{
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.box-wrap:hover .box3{
+    filter:blur(3px);
+    opacity:.5;
+    transform: scale(.98);
+    box-shadow:none;
+}
+
+.box-wrap:hover .box3:hover{
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+
+/*-------------------------------------------------------- footer widget ----------------------------------------------------------------------------*/
+
+section {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 225px;
+    background-color: #D35400;
+}
+
+.footer #button{
+    width:35px;
+    height:35px;
+    border: whitesmoke 12px solid;
+    border-radius:35px;
+    margin:0 auto;
+    position:relative;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer {
+    bottom:0;
+    left:0;
+    position:fixed;
+    width: 100%;
+    height: 2em;
+    overflow:hidden;
+    margin:0 auto;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index:999;
+}
+.footer:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    height: 10em;
+}
+.footer #container{
+    margin-top:5px;
+    width:100%;
+    height:100%;
+    position:relative;
+    top:0;
+    left:0;
+    background: #f4511e;
+}
+.footer #cont{
+    position:relative;
+    top:-45px;
+    right:190px;
+    width:150px;
+    height:auto;
+    margin:0 auto;
+}
+.footer_center{
+    width:500px;
+    float:left;
+    text-align:center;
+}
+.footer_center.buttonQuiz{
+    position: absolute;
+    right: 200px;                                     /*move quiz button*/
+}
+.footer h3{
+    font-family: 'Helvetica';
+    font-size: 20px;
+    font-weight: 100;
+    margin-top:70px;
+    margin-left:40px;
+    color: #eeeeee;
+    font-family: Raleway-Light;
+}
+
+#part1{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                         
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 20%;
+    top: 25px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+
+#part2{
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;                            
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 40%;
+    top: 5px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+
+#part3{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                           
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    right: 20%;
+    top: 25px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+#part4{
+    cursor: pointer;
+    position: absolute;
+    font-size: 18px;                            /*------------18px to 1920x100-----------------*/
+    color: #FFFFFF;
+    width: 20%;
+    height: 150px;
+    margin: auto;
+    left: 40%;
+    top: 75px;
+    padding-top: 20px;
+    font-family: "Raleway-Light";
+}
+
+/*--------------------------------------------------------------------------------- Gallery ----------------------------------------------------------------------------------------------*/
+
+.gallery {
+    margin: 75px 0;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px;
+    grid-gap: 2rem;
+    height: 20%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    background-color: transparent;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease-in-out 200ms;
+}
+
+header img:hover {
+    transform: scale(1.05);
+    transition-delay: 0ms;
+}
+
+.tall {
+    grid-row-end: span 2;
+}
+
+.blank {
+    display: none;
+}
+
+/*------------------------------------------------------------------font inc dec buttons--------------------------------------*/
+#sizer{
+	width: 160px;
+	height: 60px;
+	position: fixed;
+	overflow: hidden;
+	top:0; 
+	left:100%;
+	margin-left:-60px;
+	border-radius:0px 0px 0px 10px;
+	background-repeat:no-repeat;
+	background-color: #fff;
+    transition: margin-left 1s;
+    z-index:999;
+}#down{
+	width: 30px;
+	height: 30px;
+	display: inline;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top:10px;
+	position: relative;
+	cursor: pointer;
+}#up{
+	width: 40px;
+	height: 40px;
+	display: inline;
+	margin-left: 5px;
+	margin-right: auto;
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 10px;
+}#size{
+	width: 50px;
+	height: 50px;
+	display: inline;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	position: relative;
+}
+#down:hover{ filter: drop-shadow(1px 1px 2px rgba(0, 102, 204, 10));}
+#up:hover{ filter: drop-shadow(1px 1px 2px rgba(0, 102, 204, 10));}
+#sizer:hover{margin-left:-160px;}
+
+
+

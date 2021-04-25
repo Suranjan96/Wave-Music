@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Guitar.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Waves Music - Guitar</title>
+    <script>
+        var maxSize=0;
+        function fUp() {
+            var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+            var i;
+            maxSize++;
+            if (maxSize>2){
+                alert("Maximum Size Reached");
+            }else{
+                for (i = 0; i < x.length; i++) {
+                    var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+                    var fontSize = parseFloat(style);
+                    x[i].style.fontSize = (fontSize + 3) + 'px';
+                }
+            }
+        }function fDown() {
+            var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+            var i;
+            maxSize--;
+            if (maxSize<-2){
+                alert("Minimum Size Reached");
+            }else{
+                for (i = 0; i < x.length; i++) {
+                    var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+                    var fontSize = parseFloat(style);
+                    x[i].style.fontSize = (fontSize - 3) + 'px';
+                } 
+            }
+        }
+    </script>
+    
+</head>
+<body background = "img/image7.jpg">
+    <div id="backColor">
+        <div id="container">
+            <nav>
+                <h1 class="logo" style="font-weight:bold"><a href="Main.html"><b>Waves</b><span> <b>M</b></span>usic</a></h1>
+                <ul>
+                    <li><a href="Main.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="groupdetails.html">About</a></li>
+                    <li><a href="Form.html">Rate Us</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="sizer">
+            <img id="size" src="img/textSize.png" alt="Font Dwn"></img>
+            <img id="down" src="img/fontdown.png" alt="Font Dwn" onclick="fDown()"></img>
+            <img id="up" src="img/fontup.png" alt="Font Up" onclick="fUp()"></img>
+        </div>
+        <div id="mainContainer">
+            <h1>Guitar</h1>
+            <p>The guitar is a fretted musical instrument that usually has six strings. 
+                It is typically played with both hands by strumming or plucking the strings 
+                with either a guitar pick or the fingers/fingernails of one hand
+            </p>
+            <div class="imageStrip" id="imageStrip1">
+                <img src="img/Guitar1.jpg" alt="History of Violin"/>
+                <p>The guitar is a type of chordophone, traditionally constructed from wood and strung with either
+                    gut, nylon or steel strings and distinguished from other chordophones by its construction and tuning. 
+                   </p>
+            </div>
+            <div class="imageStrip" id="imageStrip2">
+                <p>There are 3 main types of guitar: acoustic, electric and bass. 
+                    But there are some important variations within those groups that 
+                    some people classify as different types of guitar entirely.</p>
+                <img src="img/Guitar2.jpg" alt="Play Violin"/>
+            </div>
+            <div class="imageStrip" id="imageStrip3">
+                <img src="img/Guitar3.jpg" alt="Making of Violin"/>
+                <p>The Guitar has 3 main parts,
+                    The head or headstock is where you tune the guitar.
+                    The neck is where you hold the guitar in your left hand (if you're right handed) or your right hand 
+                    (if you're left handed). The neck is also where you press your fingers on the fretboard/fingerboard to create notes and chords.
+                    The body is where you strum or pick the strings with your right hand 
+                    (if you're right handed) or your left hand (if you're left handed).</p>
+            </div>
+            <div>
+                <p>The modern guitar was preceded by the gittern, the vihuela, the four-course Renaissance guitar, and 
+                    the five-course baroque guitar, all of which contributed to the development of the modern six-string instrument.
+                </p>
+                <br>
+                <audio controls>
+                    <source src="img/Guitar.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <p>_</p>
+    </div>
+</body>
+
+<section>
+    <div id="part1"><br><br>Call Us now<br>+94112-4567890</div>
+    <div id="part2"><a href="#container"><button>Back to Top</button></a><br><br>Follow Us<br><i class="fab fa-facebook-square"></i> <i class="fab fa-instagram"> <i class="fab fa-twitter"> <i class="fab fa-pinterest-p"> </i></i></i></div>
+    <a href="Buddhin.html" target="_blank"><div id="part3"><br><br>© By Buddhin Samarasinghe <br> 2020 by Wave Music<br>Proudly Created with Group A2<br></div></a>
+    <div id="part4"><br><br>Subcribed Us<br><i class="	fab fa-youtube"></i><br></div>
+</section>
+
+<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square" style="font-size:35px; position: fixed; z-index: 4; top: 30%; right: 3%;"></i></a>
+<a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram" style="font-size:35px; position: fixed; z-index: 4; top: 45%; right: 3%;"></i></a>
+<a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter" style="font-size:35px; position: fixed; z-index: 4; top: 60%; right: 3%;"></i></a>
+<a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p" style="font-size:35px; position: fixed; z-index: 4; top: 75%; right: 3%;"></i></a>
+
+</html>

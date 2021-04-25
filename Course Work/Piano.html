@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="pianoStyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Waves Music - Piano</title>
+    <script>
+        var maxSize=0;
+        function fUp() {
+            var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+            var i;
+            maxSize++;
+            if (maxSize>2){
+                alert("Maximum Size Reached");
+            }else{
+                for (i = 0; i < x.length; i++) {
+                    var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+                    var fontSize = parseFloat(style);
+                    x[i].style.fontSize = (fontSize + 3) + 'px';
+                }
+            }
+        }function fDown() {
+            var x = document.querySelectorAll("p,h1,a,label,button,select,h2");
+            var i;
+            maxSize--;
+            if (maxSize<-2){
+                alert("Minimum Size Reached");
+            }else{
+                for (i = 0; i < x.length; i++) {
+                    var style = window.getComputedStyle(x[i], null).getPropertyValue('font-size');
+                    var fontSize = parseFloat(style);
+                    x[i].style.fontSize = (fontSize - 3) + 'px';
+                } 
+            }
+        }
+    </script>
+</head>
+<body background = "img/kevia-tan-oizxqW1Svho-unsplash.jpg">
+    <div id="backColor">
+        <div id="container">
+            <nav>
+                <h1 class="logo" style="font-weight:bold"><a href="Main.html"><b>Waves</b><span> <b>M</b></span>usic</a></h1>
+                <ul>
+                    <li><a href="Main.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="groupdetails.html">About</a></li>
+                    <li><a href="Form.html">Rate Us</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="sizer">
+            <img id="size" src="img/textSize.png" alt="Font Dwn"></img>
+            <img id="down" src="img/fontdown.png" alt="Font Dwn" onclick="fDown()"></img>
+            <img id="up" src="img/fontup.png" alt="Font Up" onclick="fUp()"></img>
+        </div>
+        <div id="mainContainer">
+            <h1>Piano</h1>
+            <p>The Piano is a keyboard instrument that produces
+				sound by striking strings with hammers, characterized by its large range and ability to play chords freely. It is a musical instrument that
+				has broad appeal.Instruments can be divided into three categories based on how they produce sounds.</p>
+            <div class="imageStrip" id="imageStrip1">
+                <img src="img/bundo-kim-lk-eWCFTuIY-unsplash.jpg" alt="History of Violin"/>
+                <p>Those categories are string instruments, 
+					wind instruments, and percussion instruments. The piano's ancestry can be traced back through various instruments such as the clavichord, 
+					harpsichord, and dulcimer.</p>
+            </div>
+            <div class="imageStrip" id="imageStrip2">
+                <p>The piano keyboard layout consists of a 
+				regular arrangement of white keys and black keys.</p>
+                <img src="img/zach-lezniewicz-czPs0z3-Ggg-unsplash.jpg" alt="Play Violin"/>
+            </div>
+            <div class="imageStrip" id="imageStrip3">
+                <img src="img/josh-hild-f_ok0989Jng-unsplash.jpg" alt="Making of Violin"/>
+                <p>The piano produces sounds by channeling the power of the 
+	fingers pressing the keys into the hammers, which strike the strings.Digital pianos made by Yamaha are equipped with hammers, though.</p>
+            </div>
+            <div>
+                <p>These are not for the purpose of striking the strings. In an acoustic piano, the tone varies infinitely according to the pianist's touch. 
+				It is an instrument that can bring out emotions by playing musical pieces with great expressiveness.At the same time, advances in technology 
+				have made it possible for digital pianos to reproduce sounds very close to those of an acoustic piano, and even the feel of the keyboard can 
+				be closely simulated by various mechanisms.</p>
+                <br>
+                <audio controls>
+                    <source src="img/piano.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <p>_</p>
+    </div>
+</body>
+
+<section>
+    <div id="part1"><br><br>Call Us now<br>+94112-4567890</div>
+    <div id="part2"><a href="#container"><button>Back to Top</button></a><br><br>Follow Us<br><i class="fab fa-facebook-square"></i> <i class="fab fa-instagram"> <i class="fab fa-twitter"> <i class="fab fa-pinterest-p"> </i></i></i></div>
+    <a href="Suranjan.html" target="_blank"><div id="part3"><br><br>© By Suranjan Kandamudali <br> 2020 by Wave Music<br>Proudly Created with Group A2<br></div></a>
+    <div id="part4"><br><br>Subcribed Us<br><i class="	fab fa-youtube"></i><br></div>
+</section>
+
+<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square" style="font-size:35px; position: fixed; z-index: 4; top: 30%; right: 3%;"></i></a>
+<a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram" style="font-size:35px; position: fixed; z-index: 4; top: 45%; right: 3%;"></i></a>
+<a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter" style="font-size:35px; position: fixed; z-index: 4; top: 60%; right: 3%;"></i></a>
+<a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p" style="font-size:35px; position: fixed; z-index: 4; top: 75%; right: 3%;"></i></a>
+
+
+</html>

@@ -1,0 +1,163 @@
+#loading {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left: 0;
+  background: #000;
+  z-index:9999;
+  color: #fff;
+  font-size: 48px;
+  text-align:center;
+  padding-top:30%;
+}
+
+body { 
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url(img/open2.png), url(img/open.jpg); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: helvetica;
+}
+*{
+ margin: 0;
+ padding: 0;
+}
+p{
+	font-size: 18px;
+}
+h1{
+	font-size: 34px;
+}
+
+/* creating a shape, if editing size - remember to edit margin too */
+#frosted{
+ background: inherit;
+ width: 400px;
+ height: 600px;
+ position: absolute;
+ overflow: hidden;
+ top:50%; 
+ left:50%;
+ margin-top:-300px;
+ margin-left:-200px;
+ border-radius:10px;
+ background-color: #555;
+ animation-name:bigsquare;
+ animation-duration: 6s;
+ animation-delay:2.5s;
+ animation-fill-mode: forwards;
+}
+
+/* create a square below the square frosted which has the frost effect */
+#frosted:before{
+ content: "";
+ width: 100%;
+ height: 100%;
+ background: inherit; 
+ position: absolute;
+ left: 0;
+ right: -20px;
+ top: 0; 
+ bottom: -20px;
+ box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.03);
+ filter: blur(20px);
+}
+
+#logo{
+	width: 300px;
+	height: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	background-size: contain;
+	background-image: url(img/logo.png);
+	animation-name:faderight;
+	animation-duration: 2.5s;
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+	
+}
+
+#welcome{
+	position: relative;
+	color:white;
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 10px;
+	animation-name:faderight;
+	animation-duration: 2.2s;
+	animation-fill-mode: forwards;
+}
+#makers{
+	position: relative;
+	color:white;
+	text-align: center;
+	margin-top: -425px;
+	margin-left:-10px;
+	margin-right:-10px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px #333333;
+	opacity:0;
+	animation-name:text;
+	animation-duration: 5s;
+	animation-delay:2.9s;
+	animation-fill-mode: forwards;
+}#redir{
+	position: relative;
+	color:white;
+	text-align: center;
+	margin-top: -540px;
+	margin-left:-10px;
+	margin-right:-10px;
+	text-shadow: 1px 1px #333333;
+	opacity:0;
+	animation-name:red;
+	animation-duration: 10s;
+	animation-delay:8.65s;
+	animation-fill-mode: forwards;
+}
+.member{
+	font-size:24px;
+	letter-spacing:5px;
+}
+#tag{
+	position: relative;
+	margin-top: 10px;
+	color:white;
+	text-align: center;
+	animation-name:faderight;
+	animation-duration: 2.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes faderight{
+	0% {left:-120%;opacity:0;animation-timing-function: linear;}
+	20% {left:-15%;animation-timing-function: linear;}
+	40% {left:0%;opacity:1;animation-timing-function: linear;}
+	60% {left:0%;opacity:1;animation-timing-function: linear;}
+	80% {left:15%;}
+	100% {left:120%;opacity:0;}
+}
+@keyframes bigsquare{
+	0% {width: 400px;}
+	10% {height:600px;width: 600px;margin-left:-300px;}
+	90% {height:600px;width: 600px;margin-left:-300px;margin-top:-300px}
+	100% {height:200px;width: 350px;margin-left:-175px;margin-top:-100px}
+}
+@keyframes text{
+	0% {opacity:0;}
+	10% {opacity:1;}
+	90% {opacity:1;}
+	100% {opacity:0;}
+}@keyframes red{
+	0% {opacity:1;}
+	10% {opacity:1;}
+	90% {opacity:1;}
+	100% {opacity:0;}
+}
